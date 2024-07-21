@@ -1,4 +1,4 @@
-node_modeules/
 .next/
 .swc/
 .*.env
+node_modules

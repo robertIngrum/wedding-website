@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 2rem 5rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.title {
+  width: 300px;
+}
+
+.nameText {
+  font-size: 2em;
+  transform: rotate(-10deg) translateY(0px);
+}
+
+.weddingText {
+  font-size: 1.5em;
+  transform: translateX(120px);
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 300px;
+  font-size: 1.2em;
+}

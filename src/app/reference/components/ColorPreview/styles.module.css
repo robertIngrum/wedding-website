@@ -1,0 +1,45 @@
+.colors {
+  --border-radius: .5em;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1em;
+  color: white;
+}
+
+.colors > div {
+  display: block;
+  width: 100px;
+  height: 100px;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em 0;
+}
+
+.colors > div:first-of-type {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.colors > div:last-of-type {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.colorPrimary {
+  background: var(--primary-color);
+}
+
+.colorPrimarySubtle {
+  background: var(--primary-color-subtle);
+}
+
+.colorSecondary {
+  background: var(--secondary-color);
+}
+
+.colorBackground {
+  background: var(--background-color);
+  color: black;
+}

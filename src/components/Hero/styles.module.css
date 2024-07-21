@@ -1,0 +1,10 @@
+.Hero {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  left: 15%;
+  right: 15%;
+  padding: 2rem;
+  background: white;
+  text-align: center;
+}
