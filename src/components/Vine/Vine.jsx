@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import {
   radiansBetweenPoints,
   getRandomIntBetween,
+  bezierSubcurve,
  } from "@/lib/mathUtils";
 
 // path: This should be an array of objects with x and y properties
@@ -10,6 +11,7 @@ export default function Vine({
   path,
   height,
   width,
+  depth = 5,
   debugPath = false,
 }) {
   // const rootPoints = [
@@ -63,6 +65,8 @@ export default function Vine({
 
     const vinePoints = VinePoints({ sourcePoints: rootPoints })
     vinePoints.forEach((point, index) => {
+      if (index > depth) { return; }
+
       debugPath && console.log(point);
 
       if (index === 0) {
@@ -82,9 +86,21 @@ export default function Vine({
 
         points.push(c1);
         points.push(c2);
-        console.log(index, point.angle);
 
-        path += ` C ${c1.x} ${c1.y}, ${c2.x} ${c2.y}, ${point.x} ${point.y}`;
+        if (index > depth - 1) {
+          const subcurve = bezierSubcurve({
+            time0: 0,
+            time1: depth - index,
+            point0: previousPoint,
+            point1: point,
+            control0: c1,
+            control1: c2,
+          })
+
+          path += ` C ${subcurve.control0.x} ${subcurve.control0.y}, ${subcurve.control1.x} ${subcurve.control1.y}, ${subcurve.point1.x} ${subcurve.point1.y}`;
+        } else {
+          path += ` C ${c1.x} ${c1.y}, ${c2.x} ${c2.y}, ${point.x} ${point.y}`;
+        }
       }
     });
 

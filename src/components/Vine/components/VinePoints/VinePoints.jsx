@@ -7,7 +7,7 @@ import {
 export default function VinePoints({
   sourcePoints,
   velocityModifier = 0.4,
-  randomDegreeRange = 0, //.3,
+  randomDegreeRange = 0.0, // TODO: Broke, I can't figure out how to keep the server and client in sync
 }) {
   let points = [];
 
