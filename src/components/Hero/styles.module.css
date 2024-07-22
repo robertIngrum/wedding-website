@@ -5,6 +5,9 @@
   left: 15%;
   right: 15%;
   padding: 2rem;
-  background: white;
+  background-image: url('/heroImage.jpg');
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  background-size: 100% auto;
   text-align: center;
 }

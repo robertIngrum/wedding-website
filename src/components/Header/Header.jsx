@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 import { dancingScript, merriweather } from "@/lib/fonts";
+import Link from "next/link"
 
 export default function Header() {
   const nameStyles = `${dancingScript.className} ${styles.nameText}`;
@@ -13,9 +14,9 @@ export default function Header() {
       </div>
 
       <div className={styles.links}>
-        <div className={styles.whoLink}>Who?</div>
-        <div className={styles.whereLink}>Where?</div>
-        <div className={styles.whenLink}>When?</div>
+        <Link href="/who" className={styles.whoLink}>Who?</Link>
+        <Link href="/where" className={styles.whereLink}>Where?</Link>
+        <Link href="/when" className={styles.whenLink}>When?</Link>
       </div>
     </header>
   );
