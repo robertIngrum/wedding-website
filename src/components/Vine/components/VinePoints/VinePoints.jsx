@@ -7,7 +7,7 @@ import {
 export default function VinePoints({
   sourcePoints,
   velocityModifier = 0.4,
-  randomDegreeRange = .3,
+  randomDegreeRange = 0, //.3,
 }) {
   let points = [];
 
@@ -16,20 +16,20 @@ export default function VinePoints({
     let currentPoint = sourcePoints[index];
     let nextPoint = sourcePoints[index + 1];
 
-    let calcPreviousAngle = () => radiansBetweenPoints(previousPoint, currentPoint);
-    let calcNextAngle = () => radiansBetweenPoints(currentPoint, nextPoint);
-
     if (index === 0) {
-      return calcNextAngle();
+      return radiansBetweenPoints(currentPoint, nextPoint);
     }
 
     if (index === sourcePoints.length - 1) {
-      return calcPreviousAngle();
+      return radiansBetweenPoints(previousPoint, currentPoint);
     }
 
     // If the point is not the first or last point, calculate the angle between the average
     // vectors of the previous and next points.
-    return (calcPreviousAngle() + calcNextAngle()) / 2;
+    return Math.atan2(
+      (currentPoint.y - previousPoint.y) + (nextPoint.y - currentPoint.y),
+      (currentPoint.x - previousPoint.x) + (nextPoint.x - currentPoint.x),
+    );
   }
 
   const getVelocityBetweenPoints = (index1, index2) => {

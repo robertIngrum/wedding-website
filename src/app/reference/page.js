@@ -14,7 +14,7 @@ export default function Reference() {
 
       <div className={styles.vineContainer}>
         <h2>Vine</h2>
-        <Vine className={styles.vine} path="" height="100" width="100" debugPath={false} />
+        <Vine className={styles.vine} path="" height="100" width="100" debugPath={true} />
       </div>
 
       <div className={styles.colorContainer}>

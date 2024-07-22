@@ -70,19 +70,13 @@ export default function Vine({
       } else {
         const previousPoint = vinePoints[index - 1];
 
-        // IDK why this is necessary
-        let velocitySwitch = -1;
-        if (previousPoint.x > point.x) {
-          // velocitySwitch = -1;
-        }
-
         const c1 = {
-          x: previousPoint.x + (Math.cos(previousPoint.angle) * previousPoint.velocityOut) * velocitySwitch,
+          x: previousPoint.x + (Math.cos(previousPoint.angle) * previousPoint.velocityOut),
           y: previousPoint.y + (Math.sin(previousPoint.angle) * previousPoint.velocityOut),
         };
 
         const c2 = {
-          x: point.x - Math.cos(point.angle) * point.velocityIn * velocitySwitch,
+          x: point.x - Math.cos(point.angle) * point.velocityIn,
           y: point.y - Math.sin(point.angle) * point.velocityIn,
         };
 
